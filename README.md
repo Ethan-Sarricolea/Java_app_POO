@@ -110,3 +110,18 @@ Se pueden ver los expedientes medicos de un paciente y el listado de citas de un
 ## Ejecución
 
 `javac ruta/src/app.java`
+
+## Estructura de carpetas
+
+El espacio de trabajo contiene dos carpetas de forma predeterminada, donde:
+
+- `src`: la carpeta para mantener las fuentes
+- `lib`: la carpeta para mantener las dependencias
+
+Mientras tanto, los archivos de salida compilados se generarán en la carpeta `bin` de forma predeterminada.
+
+> Si desea personalizar la estructura de carpetas, abra `.vscode/settings.json` y actualice la configuración relacionada allí.
+
+## Administración de dependencias
+
+La vista `PROYECTOS JAVA` le permite administrar sus dependencias. Puede encontrar más detalles [aquí](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
