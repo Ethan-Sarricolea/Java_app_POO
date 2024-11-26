@@ -1,6 +1,8 @@
 # Java_app_POO
 Actividad de programación orientada a objetos, una aplicación desarrolada en Java con el paradigma de programación orientado a objetos.
 
+Autor: @Ethan-Sarricolea
+
 # Indice
 - [Instrucciones](#instrucciones)
 - [Entrega](#entrega)
@@ -8,10 +10,11 @@ Actividad de programación orientada a objetos, una aplicación desarrolada en J
   - [Entidades](#entidades)
     - [Hospital](#hospital)
     - [Area de atencion](#area-de-atención)
-    - [Medico](#medico)
-    - [Cita](#cita)
-    - [Paciente](#paciente)
-    - [Expediente](#expediente)
+    - [Persona (Abstracta)](#person)
+    - [Doctor](#doctor)
+    - [Appointment (cita)](#cita)
+    - [Patient (Paciente)](#paciente)
+    - [Medical record (expediente medico)](#expediente-medico)
   - [Relaciones](#relaciones)
   - [Sistema](#sistema)
 - [Diagrama UML](#diagrama-uml)
@@ -71,7 +74,10 @@ Enlace a PDF:
 ### Area de atención
 Las areas de atención de un hospital dependen del nivel, Los hospitales de nivel uno cuentan con el area de ATención primaria, los de nivel dos con el area de Atencion Secundaria y los de nivel tres con el area de Atención Terciaria, un area contiene 4 tipos de atención.
 
-### Medico
+### Person
+Esta clase persona, será una clase abstracta acerca de las personas.
+
+### Doctor
 
 Los medicos atienden en diversas areas de los hospitales, y se identifican por su nombre, fecha de nacimiento, seño y especialidad.
 
@@ -82,7 +88,7 @@ Los medicos atendrán a los pacientes en las citas, cada cita se registra en el 
 ### Paciente
 De los pacientes se registra el nombre, sexo, fecha de nacimiento y en caso de tener se agrega su expediente medico.
 
-### Expediente
+### Expediente medico
 Un expediente medico contiene una lista de padecimientos y notas sobre el paciente.
 
 ## Relaciones
