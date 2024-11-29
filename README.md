@@ -69,6 +69,8 @@ Nivel tres:
 - Laboratorios avanzados
 - Investigación
 
+El hospital tiene una lista de pacientes, citas y doctores.
+
 Enlace a PDF:
 
 ### Area de atención
