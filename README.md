@@ -111,6 +111,12 @@ Se pueden ver los expedientes medicos de un paciente y el listado de citas de un
 
 # Programa
 
+- Doctor: Pepe 24-09-1979 M Laboratorio 
+- Paciente: Ethan M 16-06-2005 SI
+- Cita: 1 03-12-2024 Laboratorio 1
+
+PENDIENTE: Corregir la clase de agregar doctor para que solo agregue doctos y las preguntas se hagan aparte
+
 ## Instalación
 
 `git clone https://github.com/Ethan-Sarricolea/Java_app_POO.git`

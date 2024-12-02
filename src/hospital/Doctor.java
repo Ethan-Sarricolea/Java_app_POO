@@ -14,4 +14,11 @@ public class Doctor extends Person {
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
     }
+
+    @Override
+    public String toString() {
+        return "Doctor [nombre=" + nombre + ", especialidad=" + especialidad + ", sexo=" + sexo + "]";
+    }
+
+    
 }
