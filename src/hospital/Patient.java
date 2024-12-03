@@ -7,11 +7,15 @@ public class Patient extends Person {
         this.hasExpediente = hasExpediente;
     }
 
+    public boolean getHasExpediente(){
+        return this.hasExpediente;
+    }
+
     @Override
     public String toString() {
         return "Paciente: " + nombre
-                + "\nSexo: " + sexo
-                + "\nNacimiento: " + fecha_nacimiento;
+                + ", Sexo: " + sexo
+                + ", Nacimiento: " + fecha_nacimiento;
     }
 
     

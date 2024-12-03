@@ -7,7 +7,6 @@ import java.util.Scanner;
  * Description: Clase hospital
  * @author
  * @Ethan-Sarricolea
- * @version 
  */
 
 public class Hospital {
@@ -18,10 +17,9 @@ public class Hospital {
     private ArrayList<Doctor> doctorsLists;
     public static int pacientes;
     private ArrayList<Patient> pacientesList;
-    public int nivel;
     
     /**
-     * Constructor
+     * Constructor de clase hospital
      * @param id
      * @param direccion
      * @param nombre
@@ -37,8 +35,8 @@ public class Hospital {
     }
 
     /**
-     * 
-     * @return
+     * Metodo para generar una cita recibiendo los datos
+     * @return Texto de confirmacion
      */
     @SuppressWarnings("resource")
     public String generarCita(){
@@ -49,7 +47,12 @@ public class Hospital {
 
         if (option == 1){
             System.out.println("Coloca el id del usuario: ");
-            paciente = pacientesList.get(temp.nextInt());
+            try {
+                paciente = pacientesList.get(temp.nextInt()-1);
+            } catch (Exception e) {
+                System.out.println("-- Error - Asegurate de colocar el id correcto -- ");
+                return (" -- Error al registrar -- \n");
+            }
 
         } else if (option == 2){
             // Generar un paciente
@@ -59,10 +62,10 @@ public class Hospital {
             this.pacientesList.add(paciente);
 
         } else if (option == 0) {
-            return ("Proceso cancelado");
+            return (" -- Proceso cancelado -- ");
 
         } if (!(option == 1 || option == 2 || option == 0)) {
-            return ("Opcion no disponible, proceso cancelado");
+            return (" -- Opcion no disponible, proceso cancelado -- ");
         }
 
         Hospital.pacientes+=1;  // Conteo mas uno
@@ -75,45 +78,49 @@ public class Hospital {
     }
 
     /**
-     * 
+     * Clase para agregar un doctor como empleado al hospital
+     * @param doctor (Objeto doctor)
      */
-    public void addDoctor(){
+    public void addDoctor(Doctor doctor){
         // Constructor doctor
-        System.out.println("Coloca la informacion del doctor: "
-                            + "Nombre, nacimiento, sexo, especialidad");
-        Scanner temp = new Scanner(System.in);
-        Doctor doctor = new Doctor(temp.next(), temp.next(), temp.next(), temp.next());
         this.doctorsLists.add(doctor);
         System.out.println(" -- Doctor agregado -- ");
     }
 
     /**
-     * 
+     * Getter para el doctor especificado por id
      * @param id
-     * @return
+     * @return Objeto doctor
      */
     public Doctor getDoctor(int id){
-        return (doctorsLists.get(id));
+        try {
+            return (doctorsLists.get(id));    
+        } catch (Exception e) {
+            // Generar un doctor sin definir para agregar
+            Doctor anonymous = new Doctor("Sin definir", "sin definir", "sin definir", "sin definir");
+            return (anonymous);
+        }
+        
     }
 
     /**
-     * 
-     * @return
+     * Getter para las citas registradas
+     * @return Lista de citas
      */
     public String getCitas(){
         String list = "";
         for (Appointment appointment : citas) {
             if (appointment == null) continue;
             else {
-                list += ( appointment.toString() + "\n" );
+                list += (appointment.toString() + "\n" );
             }
         }
         return (list == "" ? "¡¡ Sin citas agendadas !!" : list );
     }
 
     /**
-     * 
-     * @return
+     * Clase para obtener el personal
+     * @return Lista de personal del hospital
      */
     public String getDoctors(){
         String list = "";
@@ -129,14 +136,15 @@ public class Hospital {
 
     /**
      * 
-     * @return
+     * @return Lista de pacientes registradoa en citas
      */
     public String getPacientes(){
         String list = "";
         for (int i = 0; i < pacientesList.size(); i++) {
             if (pacientesList.get(i) == null) continue;
             else {
-                list += ( pacientesList.get(i).getNombre() + "\n" );
+                list += ( "[" + (i+1) + "] " +  pacientesList.get(i).getNombre()
+                + " - Tiene expediente: " + (pacientesList.get(i).getHasExpediente() ? "SI" : "NO") + "\n" );
             }
         }
         return (list == "" ? "¡¡ Sin pacientes registrados !!" : list );
@@ -149,6 +157,8 @@ public class Hospital {
     @Override
     public String toString() {
         return "Hospital: " + nombre 
-                + "\n" + direccion;
+                + "\n" + direccion 
+                + "\nPacientes por atender: "
+                + Hospital.pacientes + "\n";
     }
 }
