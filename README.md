@@ -67,9 +67,6 @@ Los pacientes igualmente se extienden de la clase persona, por lo que se identif
 
 Los medicos atendrán a los pacientes en las citas, cada cita se registra en el sistema y contiene un identificador unico, la fecha de agenda, el hospital, el area y nombre de paciente.
 
-### Expediente medico
-Un expediente medico contiene una lista de padecimientos y notas sobre el paciente.
-
 ## Relaciones
 - Los medicos y pacientes son personas
 - El hospital necesita medicos que trabajen en el
